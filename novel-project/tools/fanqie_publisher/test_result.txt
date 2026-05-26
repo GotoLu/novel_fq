@@ -1,0 +1,112 @@
+﻿============================================================
+番茄作家助手发布工具 - 自动化测试
+============================================================
+
+[测试1] Playwright导入测试
+  [OK] Playwright导入成功
+
+[测试2] 启动浏览器测试
+  启动Playwright...
+  启动Chromium...
+  [FAIL] 浏览器测试失败: BrowserType.launch: Executable doesn't exist at C:\Users\Administrator\AppData\Local\ms-playwright\chromium_headless_shell-1223\chrome-headless-shell-win64\chrome-headless-shell.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+
+[测试3] 访问番茄作家助手测试
+  [FAIL] 访问失败: BrowserType.launch: Executable doesn't exist at C:\Users\Administrator\AppData\Local\ms-playwright\chromium_headless_shell-1223\chrome-headless-shell-win64\chrome-headless-shell.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+
+[测试4] 解析章节文件测试
+  解析文件: 第001章_大嘴侦探登场.md
+  [OK] 解析成功
+    标题: 第一章 大嘴侦探登场
+    章节号: None
+    字数: 4313
+
+============================================================
+测试结果汇总
+============================================================
+  Playwright导入: [OK] 通过
+  启动浏览器: [FAIL] 失败
+  访问番茄页面: [FAIL] 失败
+  解析章节文件: [OK] 通过
+
+总计: 2/4 通过
+python : Exception ignored while calling deallocator <function BaseSubprocessTr
+ansport.__del__ at 0x00000137E2E537F0>:
+所在位置 行:1 字符: 69
++ ... -project\tools\fanqie_publisher ; python -u auto_test.py 2>&1 | Out-F ...
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Exception ignor...00137E2E537F0>: 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\base_subprocess.py", line 134, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\base_subprocess.py", line 73, in __repr__
+    info.append(f'stdin={stdin.pipe}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored while calling deallocator <function _ProactorBasePipeTranspor
+t.__del__ at 0x00000137E2EC9380>:
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored while calling deallocator <function _ProactorBasePipeTranspor
+t.__del__ at 0x00000137E2EC9380>:
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored while calling deallocator <function BaseSubprocessTransport._
+_del__ at 0x00000137E2E537F0>:
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\base_subprocess.py", line 134, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\base_subprocess.py", line 73, in __repr__
+    info.append(f'stdin={stdin.pipe}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyn
+cio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe

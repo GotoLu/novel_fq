@@ -1,0 +1,10 @@
+cdp_port: 9222
+headless: false
+timeout: 30000
+max_retries: 3
+retry_delay: 2.0
+screenshot_on_error: true
+screenshot_dir: "./screenshots"
+log_level: "INFO"
+fanqie_url: "https://fanqienovel.com/writer"
+slow_mo: 100

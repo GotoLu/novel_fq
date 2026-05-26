@@ -13,6 +13,63 @@ description: "Writes novel content including opening chapters, regular chapters,
 
 ---
 
+## 核心创作流程规范
+
+### 标准三稿流程（必须执行）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    标准创作流程                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  第一步：准备阶段                                            │
+│  ├─ 1.1 获取大纲数据                                         │
+│  ├─ 1.2 获取人物设定                                         │
+│  ├─ 1.3 回顾前文内容                                         │
+│  └─ 1.4 设计写作策略                                         │
+│                                                             │
+│  第二步：初稿阶段                                            │
+│  ├─ 2.1 撰写初稿                                             │
+│  ├─ 2.2 初稿质量检查（check_quality: basic）                 │
+│  └─ 2.3 记录初稿问题                                         │
+│                                                             │
+│  第三步：修改稿阶段                                          │
+│  ├─ 3.1 根据初稿问题修改                                     │
+│  ├─ 3.2 修改稿质量检查（check_quality: standard）            │
+│  └─ 3.3 记录修改稿问题                                       │
+│                                                             │
+│  第四步：终稿阶段                                            │
+│  ├─ 4.1 根据修改稿问题修改                                   │
+│  ├─ 4.2 终稿质量检查（check_quality: strict）                │
+│  ├─ 4.3 节奏控制（control_pacing）                           │
+│  └─ 4.4 保存终稿                                             │
+│                                                             │
+│  第五步：输出阶段                                            │
+│  ├─ 5.1 生成创作报告                                         │
+│  └─ 5.2 更新进度跟踪                                         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 流程检查清单
+
+| 阶段 | 步骤 | 必须执行 | 输出物 |
+|------|------|---------|--------|
+| 准备 | 获取大纲 | ✅ | outline_data |
+| 准备 | 获取人物设定 | ✅ | character_data |
+| 准备 | 回顾前文 | ✅ | previous_context |
+| 准备 | 设计写作策略 | ✅ | writing_strategy |
+| 初稿 | 撰写初稿 | ✅ | draft_v1 |
+| 初稿 | 质量检查(basic) | ✅ | quality_report_v1 |
+| 修改稿 | 修改 | ✅ | draft_v2 |
+| 修改稿 | 质量检查(standard) | ✅ | quality_report_v2 |
+| 终稿 | 修改 | ✅ | draft_final |
+| 终稿 | 质量检查(strict) | ✅ | quality_report_final |
+| 终稿 | 节奏控制 | ✅ | pacing_report |
+| 终稿 | 保存 | ✅ | saved_file |
+
+---
+
 ## 输入参数
 
 ```json
@@ -31,7 +88,8 @@ description: "Writes novel content including opening chapters, regular chapters,
       "cliffhanger": "xxx"
     },
     "pacing_type": "fast | medium | slow",
-    "quality_check_level": "basic | standard | strict"
+    "quality_check_level": "basic | standard | strict",
+    "draft_stage": "v1 | v2 | final"
   }
 }
 ```
@@ -48,6 +106,7 @@ description: "Writes novel content including opening chapters, regular chapters,
 | params.outline_data | object | 否 | 大纲数据 |
 | params.pacing_type | string | 否 | 节奏类型 |
 | params.quality_check_level | string | 否 | 质量检查级别 |
+| params.draft_stage | string | 否 | 稿件阶段 |
 
 ---
 
@@ -57,35 +116,56 @@ description: "Writes novel content including opening chapters, regular chapters,
 {
   "status": "success | error",
   "data": {
-    "chapter_content": {
+    "draft_info": {
       "chapter_number": 1,
       "title": "xxx",
-      "content": "正文内容...",
-      "word_count": 3200,
-      "content_type": "opening"
+      "draft_stage": "final",
+      "versions": {
+        "v1": {
+          "content": "初稿内容...",
+          "word_count": 2800,
+          "quality_score": 6.5,
+          "issues": ["问题1", "问题2"]
+        },
+        "v2": {
+          "content": "修改稿内容...",
+          "word_count": 3100,
+          "quality_score": 8.0,
+          "issues": ["问题1"]
+        },
+        "final": {
+          "content": "终稿内容...",
+          "word_count": 3200,
+          "quality_score": 9.0,
+          "issues": []
+        }
+      }
+    },
+    "quality_check": {
+      "overall_score": 9.0,
+      "dimensions": {
+        "language_fluency": 9.0,
+        "character_consistency": 9.0,
+        "plot_progression": 9.0,
+        "emotional_impact": 9.0,
+        "humor_effect": 8.5,
+        "foreshadowing": 8.0
+      },
+      "issues": [],
+      "suggestions": []
     },
     "pacing_analysis": {
       "tension_level": 7.5,
       "information_density": 8.0,
       "conflict_intensity": 6.5,
-      "suggestion": "节奏适中，可适当加快"
-    },
-    "quality_check": {
-      "overall_score": 8.5,
-      "dimensions": {
-        "language_fluency": 9.0,
-        "character_consistency": 8.5,
-        "plot_progression": 8.0,
-        "emotional_impact": 8.5
-      },
-      "issues": [],
-      "suggestions": []
+      "suggestion": "节奏适中"
     },
     "writing_statistics": {
       "actual_word_count": 3200,
       "target_word_count": 3000,
       "completion_rate": 106.7,
-      "writing_time": "15分钟"
+      "draft_versions": 3,
+      "total_revision_time": "45分钟"
     }
   },
   "errors": []
@@ -100,40 +180,47 @@ description: "Writes novel content including opening chapters, regular chapters,
 
 **执行步骤**：
 ```
-1. 获取开篇大纲
-    ↓
-2. 设计开篇策略
-    - 快速建立代入感
-    - 展示主角魅力
-    - 设置核心悬念
-    ↓
-3. 撰写第一章
-    - 主角出场（前500字）
-    - 建立代入点
-    - 设置留钩
-    ↓
-4. 撰写第二章
-    - 展示核心设定
-    - 推进情节
-    - 强化代入感
-    ↓
-5. 撰写第三章
-    - 设置核心悬念
-    - 强力留钩
-    - 建立追读动力
-    ↓
-6. 质量检查
-    - 代入感强度
-    - 信息密度
-    - 节奏控制
-    ↓
-7. 返回开篇内容
+┌─────────────────────────────────────────────────────────────┐
+│                    开篇写作流程                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  【准备阶段】                                                │
+│  1. 获取开篇大纲（第1-5章）                                  │
+│  2. 获取人物设定（主角、配角）                               │
+│  3. 设计开篇策略：                                           │
+│     - 第一章：主角出场+魅力展示+小案件                       │
+│     - 第二章：建立工作环境+介绍配角                          │
+│     - 第三章：第一个正式案件                                 │
+│     - 第四章：展示推理过程                                   │
+│     - 第五章：破案+建立核心设定                              │
+│                                                             │
+│  【第一章创作】                                              │
+│  4. 撰写第一章初稿                                           │
+│  5. 质量检查(basic)：主角是否魅力？代入感是否强？            │
+│  6. 修改→修改稿                                              │
+│  7. 质量检查(standard)：语言是否流畅？节奏是否合适？         │
+│  8. 修改→终稿                                                │
+│  9. 质量检查(strict)+节奏控制                                │
+│  10. 保存第一章终稿                                          │
+│                                                             │
+│  【第二章创作】（重复步骤4-10）                              │
+│  【第三章创作】（重复步骤4-10）                              │
+│  【第四章创作】（重复步骤4-10）                              │
+│  【第五章创作】（重复步骤4-10）                              │
+│                                                             │
+│  【收束阶段】                                                │
+│  11. 整体节奏检查                                            │
+│  12. 生成开篇报告                                            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 **开篇要点**：
-- **第一章**：快速建立代入感，主角魅力展现
-- **第二章**：展示核心设定，推进情节
-- **第三章**：设置核心悬念，强力留钩
+- **第一章**：快速建立代入感，主角魅力展现，小案件展示能力
+- **第二章**：展示工作环境，介绍主要配角
+- **第三章**：第一个正式案件，设置悬念
+- **第四章**：展示推理过程，制造幽默
+- **第五章**：破案，建立核心设定，伏笔埋设
 
 ---
 
@@ -141,36 +228,59 @@ description: "Writes novel content including opening chapters, regular chapters,
 
 **执行步骤**：
 ```
-1. 获取章节大纲
-    ↓
-2. 回顾前文
-    - 前一章内容
-    - 人物状态
-    - 情节进展
-    ↓
-3. 确定写作要点
-    - 核心事件
-    - 冲突设置
-    - 人物出场
-    - 伏笔处理
-    ↓
-4. 撰写章节内容
-    - 开头承接
-    - 事件展开
-    - 冲突发展
-    - 结尾留钩
-    ↓
-5. 控制节奏
-    - 信息密度
-    - 张弛节奏
-    - 情感强度
-    ↓
-6. 质量检查
-    - 语言流畅度
-    - 人物一致性
-    - 情节推进
-    ↓
-7. 返回章节内容
+┌─────────────────────────────────────────────────────────────┐
+│                    单章写作流程                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  【准备阶段】                                                │
+│  1. 获取章节大纲                                             │
+│  2. 获取人物设定                                             │
+│  3. 回顾前文内容（前1-2章）                                  │
+│  4. 确定写作要点：                                           │
+│     - 核心事件                                               │
+│     - 冲突设置                                               │
+│     - 人物出场                                               │
+│     - 伏笔处理                                               │
+│     - 幽默点                                                 │
+│                                                             │
+│  【初稿阶段】                                                │
+│  5. 撰写初稿                                                 │
+│     - 开头承接前文                                           │
+│     - 事件展开                                               │
+│     - 冲突发展                                               │
+│     - 结尾留钩                                               │
+│  6. 质量检查(basic)：                                        │
+│     - 字数是否达标？                                         │
+│     - 核心事件是否完成？                                     │
+│     - 人物是否出场？                                         │
+│  7. 记录初稿问题                                             │
+│                                                             │
+│  【修改稿阶段】                                              │
+│  8. 根据初稿问题修改                                         │
+│  9. 质量检查(standard)：                                     │
+│     - 语言流畅度                                             │
+│     - 人物一致性                                             │
+│     - 情节推进                                               │
+│     - 幽默效果                                               │
+│  10. 记录修改稿问题                                          │
+│                                                             │
+│  【终稿阶段】                                                │
+│  11. 根据修改稿问题修改                                      │
+│  12. 质量检查(strict)：                                      │
+│     - 所有维度全面检查                                       │
+│     - 伏笔是否正确埋设/回收？                                │
+│     - 幽默点是否有效？                                       │
+│  13. 节奏控制：                                              │
+│     - 信息密度                                               │
+│     - 张弛节奏                                               │
+│     - 情感强度                                               │
+│  14. 保存终稿                                                │
+│                                                             │
+│  【输出阶段】                                                │
+│  15. 生成创作报告                                            │
+│  16. 更新进度跟踪                                            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -190,22 +300,32 @@ description: "Writes novel content including opening chapters, regular chapters,
     - 爆发阶段
     - 延续阶段
     ↓
-4. 撰写高潮内容
+4. 撰写初稿
     - 冲突升级
     - 高潮爆发
     - 情感释放
     ↓
-5. 控制节奏
-    - 加快节奏
-    - 提升张力
-    - 强化情感
+5. 质量检查(basic)
     ↓
-6. 质量检查
+6. 修改→修改稿
+    ↓
+7. 质量检查(standard)
+    ↓
+8. 修改→终稿
+    ↓
+9. 质量检查(strict)
     - 高潮强度
     - 情感冲击
     - 读者满意度
     ↓
-7. 返回高潮内容
+10. 节奏控制
+    - 加快节奏
+    - 提升张力
+    - 强化情感
+    ↓
+11. 保存终稿
+    ↓
+12. 返回高潮内容
 ```
 
 ---
@@ -215,9 +335,9 @@ description: "Writes novel content including opening chapters, regular chapters,
 **执行步骤**：
 ```
 1. 分析当前节奏
-    - 紧张度
-    - 信息密度
-    - 冲突强度
+    - 紧张度（1-10分）
+    - 信息密度（1-10分）
+    - 冲突强度（1-10分）
     ↓
 2. 识别节奏问题
     - 过快/过慢
@@ -236,6 +356,16 @@ description: "Writes novel content including opening chapters, regular chapters,
 6. 返回调整结果
 ```
 
+**节奏标准**：
+
+| 内容类型 | 紧张度 | 信息密度 | 冲突强度 |
+|---------|--------|---------|---------|
+| 开篇 | 6-7 | 7-8 | 5-6 |
+| 日常 | 4-5 | 6-7 | 4-5 |
+| 案件调查 | 7-8 | 8-9 | 6-7 |
+| 高潮 | 9-10 | 8-9 | 9-10 |
+| 过渡 | 3-4 | 5-6 | 3-4 |
+
 ---
 
 ### 5. 质量检查 (check_quality)
@@ -243,9 +373,9 @@ description: "Writes novel content including opening chapters, regular chapters,
 **执行步骤**：
 ```
 1. 确定检查级别
-    - 基础检查
-    - 标准检查
-    - 严格检查
+    - basic：基础检查（5个维度）
+    - standard：标准检查（8个维度）
+    - strict：严格检查（12个维度）
     ↓
 2. 语言质量检查
     - 流畅度
@@ -267,6 +397,48 @@ description: "Writes novel content including opening chapters, regular chapters,
 6. 返回检查结果
 ```
 
+**质量检查标准**：
+
+#### Basic级别（初稿检查）
+
+| 维度 | 检查内容 | 合格线 |
+|------|---------|--------|
+| 字数达标 | 实际字数/目标字数 | ≥90% |
+| 核心事件完成 | 大纲核心事件是否完成 | 是 |
+| 人物出场 | 要求出场人物是否出场 | 是 |
+| 基本流畅 | 是否有严重语病 | 无 |
+| 结构完整 | 开头-发展-结尾是否完整 | 是 |
+
+#### Standard级别（修改稿检查）
+
+| 维度 | 检查内容 | 合格线 |
+|------|---------|--------|
+| 语言流畅度 | 句式是否自然流畅 | ≥7分 |
+| 人物一致性 | 人物行为是否符合设定 | ≥7分 |
+| 情节推进 | 情节是否有效推进 | ≥7分 |
+| 幽默效果 | 幽默点是否有效 | ≥6分 |
+| 对话质量 | 对话是否生动 | ≥7分 |
+| 描写质量 | 描写是否生动 | ≥7分 |
+| 节奏控制 | 节奏是否合适 | ≥7分 |
+| 伏笔处理 | 伏笔是否正确处理 | ≥6分 |
+
+#### Strict级别（终稿检查）
+
+| 维度 | 检查内容 | 合格线 |
+|------|---------|--------|
+| 语言流畅度 | 句式是否自然流畅 | ≥8分 |
+| 人物一致性 | 人物行为是否符合设定 | ≥8分 |
+| 情节推进 | 情节是否有效推进 | ≥8分 |
+| 幽默效果 | 幽默点是否有效 | ≥7分 |
+| 对话质量 | 对话是否生动 | ≥8分 |
+| 描写质量 | 描写是否生动 | ≥8分 |
+| 节奏控制 | 节奏是否合适 | ≥8分 |
+| 伏笔处理 | 伏笔是否正确处理 | ≥8分 |
+| 情感冲击 | 情感是否有冲击力 | ≥7分 |
+| 留钩效果 | 结尾是否吸引人 | ≥7分 |
+| 设定准确 | 是否符合世界观设定 | ≥9分 |
+| 整体质量 | 综合评价 | ≥8分 |
+
 ---
 
 ## 错误处理机制
@@ -281,6 +453,7 @@ description: "Writes novel content including opening chapters, regular chapters,
 | PACING_ISSUE | 节奏问题 | 返回问题分析和调整建议 |
 | QUALITY_BELOW_STANDARD | 质量不达标 | 返回问题和改进建议 |
 | CHARACTER_INCONSISTENT | 人物不一致 | 返回不一致详情 |
+| DRAFT_STAGE_ERROR | 稿件阶段错误 | 返回正确的阶段流程 |
 
 ---
 
@@ -303,33 +476,66 @@ description: "Writes novel content including opening chapters, regular chapters,
 
 ## 使用示例
 
-### 示例1：写作开篇
+### 示例1：写作开篇（完整流程）
 
 ```json
+步骤1：准备阶段
 输入：
 {
   "action": "write_opening",
   "params": {
-    "word_count_target": 10000,
-    "outline_data": {
-      "core_event": "主角获得金手指",
-      "conflict": "主角vs家族压迫"
-    }
+    "word_count_target": 15000,
+    "content_type": "opening"
   }
 }
 
+步骤2：第一章初稿
 输出：
 {
   "status": "success",
   "data": {
-    "chapter_content": {
+    "draft_info": {
       "chapter_number": 1,
-      "title": "第一章 觉醒",
-      "content": "正文内容...",
-      "word_count": 3200
+      "draft_stage": "v1",
+      "word_count": 2800,
+      "quality_score": 6.5
     }
   }
 }
+
+步骤3：第一章修改稿
+输出：
+{
+  "status": "success",
+  "data": {
+    "draft_info": {
+      "chapter_number": 1,
+      "draft_stage": "v2",
+      "word_count": 3100,
+      "quality_score": 8.0
+    }
+  }
+}
+
+步骤4：第一章终稿
+输出：
+{
+  "status": "success",
+  "data": {
+    "draft_info": {
+      "chapter_number": 1,
+      "draft_stage": "final",
+      "word_count": 3200,
+      "quality_score": 9.0
+    },
+    "quality_check": {
+      "overall_score": 9.0,
+      "all_dimensions_passed": true
+    }
+  }
+}
+
+...（重复第二章至第五章）
 ```
 
 ---
@@ -337,10 +543,12 @@ description: "Writes novel content including opening chapters, regular chapters,
 ## 注意事项
 
 1. **黄金三章**：前三章务必精彩，决定作品生死
-2. **保持连贯**：不断更、不烂尾
-3. **质量稳定**：不因赶进度牺牲质量
-4. **节奏控制**：张弛有度，信息密度适中
-5. **人物一致**：保持人物性格和行为一致
+2. **三稿流程**：必须执行初稿→修改稿→终稿流程
+3. **质量检查**：每稿必须进行质量检查
+4. **保持连贯**：不断更、不烂尾
+5. **质量稳定**：不因赶进度牺牲质量
+6. **节奏控制**：张弛有度，信息密度适中
+7. **人物一致**：保持人物性格和行为一致
 
 ---
 
@@ -356,8 +564,8 @@ description: "Writes novel content including opening chapters, regular chapters,
 
 ## 性能指标
 
-- 开篇写作时间：30-60分钟（三章）
-- 章节写作时间：15-30分钟/章
-- 高潮写作时间：30-45分钟
+- 单章创作时间：30-45分钟（含三稿流程）
+- 开篇创作时间：2-3小时（五章，含三稿流程）
+- 高潮创作时间：45-60分钟（含三稿流程）
 - 节奏调整时间：< 5分钟
-- 质量检查时间：< 3分钟/章
+- 质量检查时间：< 3分钟/章/级别

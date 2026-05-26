@@ -1,0 +1,31 @@
+============================================================
+简单调试测试
+============================================================
+
+[步骤1] 检查Python版本
+Python: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+
+[步骤2] 检查lib目录
+lib路径: d:\workspace\ai\novel\novel-project\tools\fanqie_publisher\lib
+lib存在: True
+lib内容: ['bin', 'greenlet', 'greenlet-3.5.1.dist-info', 'include', 'playwright']
+
+[步骤3] 尝试导入Playwright
+[OK] Playwright导入成功
+
+[步骤4] 尝试导入yaml
+[OK] yaml导入成功
+
+[步骤5] 尝试导入publisher模块
+[OK] publisher模块导入成功
+
+[步骤6] 检查章节文件
+章节文件路径: d:\workspace\ai\novel\novel-project\正文\第001章_大嘴侦探登场.md
+章节文件存在: True
+[OK] 章节解析成功
+  标题: 第一章 大嘴侦探登场
+  字数: 4313
+
+============================================================
+测试完成
+============================================================
