@@ -108,7 +108,7 @@ class FanqiePublisherConfig:
         screenshot_on_error: bool = True,
         screenshot_dir: str = "./screenshots",
         log_level: str = "INFO",
-        fanqie_url: str = "https://fanqienovel.com/writer",
+        fanqie_url: str = "https://fanqienovel.com/main/writer/book-manage",
         slow_mo: int = 100
     ):
         self.cdp_port = cdp_port
