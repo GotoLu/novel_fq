@@ -1,0 +1,382 @@
+{
+  "name": "novel-creation-chain",
+  "version": "2.0.0",
+  "description": "小说创作完整技能链 - 从灵感到出版的全流程技能整合（含书名封面两阶段设计）",
+  "totalSkills": 12,
+  "totalStages": 5,
+  
+  "stages": [
+    {
+      "id": "stage-1",
+      "name": "创意与构思",
+      "description": "基础构建阶段，确定创作方向和故事框架",
+      "order": 1,
+      "skills": [
+        {
+          "id": "inspiration-capture",
+          "name": "灵感捕捉",
+          "description": "捕捉和整理小说创作灵感",
+          "order": 1,
+          "dependencies": [],
+          "estimatedDuration": "1-2周"
+        },
+        {
+          "id": "market-research",
+          "name": "市场调研",
+          "description": "分析小说市场和读者需求",
+          "order": 2,
+          "dependencies": ["inspiration-capture"],
+          "estimatedDuration": "2-3周"
+        },
+        {
+          "id": "outline-planning",
+          "name": "大纲规划",
+          "description": "规划小说整体结构和章节大纲",
+          "order": 3,
+          "dependencies": ["inspiration-capture", "market-research"],
+          "estimatedDuration": "2-4周",
+          "milestone": {
+            "id": "M1",
+            "name": "故事框架确定"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "name": "人物与世界观",
+      "description": "创作基础构建阶段，塑造人物和搭建世界",
+      "order": 2,
+      "skills": [
+        {
+          "id": "character-design",
+          "name": "人物设计",
+          "description": "设计小说人物形象和关系网络",
+          "order": 1,
+          "dependencies": ["outline-planning"],
+          "parallelWith": ["world-building"],
+          "estimatedDuration": "2-3周"
+        },
+        {
+          "id": "world-building",
+          "name": "世界观构建",
+          "description": "构建小说世界观和背景设定",
+          "order": 2,
+          "dependencies": ["outline-planning"],
+          "parallelWith": ["character-design"],
+          "estimatedDuration": "2-3周",
+          "milestone": {
+            "id": "M2",
+            "name": "创作基础完备"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stage-2-5",
+      "name": "品牌预构建",
+      "description": "写作前品牌设计阶段，创建初步书名和封面用于营销预告",
+      "order": 3,
+      "skills": [
+        {
+          "id": "initial-title-cover-design",
+          "name": "初步书名封面设计",
+          "description": "初步设计书名和封面，用于营销预告和早期读者互动",
+          "order": 1,
+          "dependencies": ["outline-planning", "character-design", "world-building"],
+          "inputs": {
+            "required": [
+              {
+                "from": "outline-planning",
+                "items": ["故事结构图", "章节大纲表"]
+              },
+              {
+                "from": "character-design",
+                "items": ["人物小传集", "人物关系图谱"]
+              },
+              {
+                "from": "world-building",
+                "items": ["世界观总纲", "设定查询手册"]
+              }
+            ]
+          },
+          "outputs": [
+            {
+              "name": "初步书名方案",
+              "file": ".trae/novel/title-cover/initial-title.md",
+              "description": "推荐书名和备选方案"
+            },
+            {
+              "name": "初步封面设计",
+              "file": ".trae/novel/title-cover/initial-cover/",
+              "description": "封面设计方案和草图"
+            },
+            {
+              "name": "品牌识别系统",
+              "file": ".trae/novel/title-cover/brand-identity.md",
+              "description": "核心视觉元素和应用规范"
+            },
+            {
+              "name": "营销素材包",
+              "file": ".trae/novel/title-cover/marketing-materials/",
+              "description": "预告素材和社交媒体素材"
+            }
+          ],
+          "deliverables": ".trae/novel/title-cover/",
+          "qualityMetrics": {
+            "quantitative": [
+              "备选书名 ≥ 3个",
+              "备选封面 ≥ 2个方案",
+              "测试反馈 ≥ 10人"
+            ],
+            "qualitative": [
+              "与故事框架相关性",
+              "营销吸引力",
+              "品牌一致性"
+            ]
+          },
+          "estimatedDuration": "1-2周",
+          "milestone": {
+            "id": "M2-5",
+            "name": "品牌预构建完成"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "name": "写作阶段",
+      "description": "核心创作阶段，完成小说写作和修改",
+      "order": 4,
+      "skills": [
+        {
+          "id": "first-draft-writing",
+          "name": "初稿写作",
+          "description": "撰写小说初稿",
+          "order": 1,
+          "dependencies": ["outline-planning", "character-design", "world-building"],
+          "estimatedDuration": "3-12个月",
+          "milestone": {
+            "id": "M3",
+            "name": "初稿完成"
+          }
+        },
+        {
+          "id": "second-draft-revision",
+          "name": "二稿修改",
+          "description": "修改小说二稿，优化结构和情节",
+          "order": 2,
+          "dependencies": ["first-draft-writing"],
+          "estimatedDuration": "1-2个月"
+        },
+        {
+          "id": "third-draft-polishing",
+          "name": "三稿精修",
+          "description": "精修小说三稿，润色语言文字",
+          "order": 3,
+          "dependencies": ["second-draft-revision"],
+          "estimatedDuration": "1-2个月",
+          "milestone": {
+            "id": "M4",
+            "name": "精修稿完成"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "name": "专业打磨",
+      "description": "质量保障阶段，完成审稿、定稿和品牌优化",
+      "order": 5,
+      "skills": [
+        {
+          "id": "professional-review",
+          "name": "专业审稿",
+          "description": "进行专业审稿和获取反馈",
+          "order": 1,
+          "dependencies": ["third-draft-polishing"],
+          "estimatedDuration": "2-4周"
+        },
+        {
+          "id": "final-manuscript",
+          "name": "定稿",
+          "description": "完成小说定稿和出版准备",
+          "order": 2,
+          "dependencies": ["professional-review"],
+          "parallelWith": ["final-title-cover-refinement"],
+          "estimatedDuration": "1-2周"
+        },
+        {
+          "id": "final-title-cover-refinement",
+          "name": "最终书名封面优化",
+          "description": "基于完整内容优化确定最终书名和封面",
+          "order": 3,
+          "dependencies": ["professional-review", "initial-title-cover-design"],
+          "parallelWith": ["final-manuscript"],
+          "inputs": {
+            "required": [
+              {
+                "from": "professional-review",
+                "items": ["审稿后稿件", "质量评估报告"]
+              },
+              {
+                "from": "initial-title-cover-design",
+                "items": ["初步书名方案", "初步封面设计", "品牌识别系统"]
+              }
+            ]
+          },
+          "outputs": [
+            {
+              "name": "最终书名",
+              "file": ".trae/novel/title-cover/final-title.md",
+              "description": "确定的书名和选择依据"
+            },
+            {
+              "name": "最终封面设计",
+              "file": ".trae/novel/title-cover/final-cover/",
+              "description": "出版级封面设计"
+            },
+            {
+              "name": "品牌系统",
+              "file": ".trae/novel/title-cover/brand-system/",
+              "description": "完整的品牌识别系统"
+            }
+          ],
+          "deliverables": ".trae/novel/title-cover/",
+          "qualityMetrics": {
+            "quantitative": [
+              "内容契合度 ≥ 90%",
+              "市场测试样本 ≥ 50人",
+              "设计文件完整度 100%"
+            ],
+            "qualitative": [
+              "内容完美契合",
+              "情感准确传达",
+              "市场适应性强",
+              "出版级品质"
+            ]
+          },
+          "estimatedDuration": "2-3周",
+          "milestone": {
+            "id": "M5",
+            "name": "最终定稿完成"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "executionModes": {
+    "sequential": {
+      "description": "顺序执行模式",
+      "usage": "按照技能链顺序依次执行每个技能"
+    },
+    "iterative": {
+      "description": "迭代执行模式",
+      "usage": "允许在某个阶段反复迭代，直到达到质量标准"
+    },
+    "parallel": {
+      "description": "并行执行模式",
+      "usage": "部分技能可并行执行",
+      "parallelGroups": [
+        ["character-design", "world-building"],
+        ["final-manuscript", "final-title-cover-refinement"]
+      ]
+    }
+  },
+  
+  "checkpoints": [
+    {
+      "id": "CP1",
+      "afterStage": 1,
+      "name": "故事框架完整性检查"
+    },
+    {
+      "id": "CP2",
+      "afterStage": 2,
+      "name": "创作基础完备性检查"
+    },
+    {
+      "id": "CP2-5",
+      "afterSkill": "initial-title-cover-design",
+      "name": "品牌预构建质量检查"
+    },
+    {
+      "id": "CP3",
+      "afterSkill": "first-draft-writing",
+      "name": "初稿质量检查"
+    },
+    {
+      "id": "CP4",
+      "afterSkill": "third-draft-polishing",
+      "name": "精修稿质量检查"
+    },
+    {
+      "id": "CP5",
+      "afterStage": 4,
+      "name": "定稿和品牌完成检查"
+    }
+  ],
+  
+  "titleCoverTwoPhaseProcess": {
+    "description": "书名封面两阶段设计流程",
+    "phase1": {
+      "name": "写作前开发阶段",
+      "skill": "initial-title-cover-design",
+      "timing": "大纲、人物、世界观完成后，初稿写作前",
+      "purpose": [
+        "逐步内容发布",
+        "营销预告",
+        "早期读者互动",
+        "品牌预构建"
+      ],
+      "deliverables": [
+        "初步书名方案",
+        "初步封面设计",
+        "营销素材包",
+        "品牌识别系统"
+      ]
+    },
+    "phase2": {
+      "name": "完成后优化阶段",
+      "skill": "final-title-cover-refinement",
+      "timing": "定稿阶段，与定稿并行",
+      "purpose": [
+        "基于完整内容优化",
+        "确保内容契合",
+        "市场测试验证",
+        "达到出版标准"
+      ],
+      "deliverables": [
+        "最终书名",
+        "最终封面设计",
+        "完整品牌系统",
+        "出版级设计文件"
+      ]
+    },
+    "relationship": {
+      "description": "两阶段关系",
+      "input": "阶段1输出作为阶段2的输入和基础",
+      "optimization": "阶段2基于完整内容对阶段1成果进行优化",
+      "consistency": "保持品牌一致性，避免推翻重来",
+      "flexibility": "阶段1保持弹性，阶段2固化品牌"
+    }
+  },
+  
+  "estimatedTotalDuration": "12-24个月",
+  
+  "metadata": {
+    "createdAt": "2024-01-01",
+    "updatedAt": "2024-01-15",
+    "author": "Novel Creation System",
+    "version": "2.0.0",
+    "tags": ["小说创作", "技能链", "工作流", "创作流程", "书名封面设计"],
+    "changes": [
+      "新增初步书名封面设计技能（写作前）",
+      "新增最终书名封面优化技能（定稿时）",
+      "增加品牌预构建阶段",
+      "技能总数从10个增加到12个",
+      "阶段总数从4个增加到5个"
+    ]
+  }
+}
