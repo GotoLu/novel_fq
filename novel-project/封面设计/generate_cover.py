@@ -54,7 +54,7 @@ def draw_rounded_rect(draw, xy, radius, fill, outline=None, width=1):
     draw.rounded_rectangle(xy, radius=radius, fill=fill, outline=outline, width=width)
 
 def draw_detective_character(draw, cx, cy, scale=1.0):
-    """绘制李大嘴卡通形象"""
+    """绘制陆行舟卡通形象"""
     s = scale
     
     # 身体（瘦高）
