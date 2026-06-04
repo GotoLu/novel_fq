@@ -15,7 +15,7 @@
 | 连载复盘 | `progress-tracker` | `quality-evaluator`、`problem-solver` | P12、P14 |
 | 发布准备 | `market-analyzer` | `quality-evaluator`、`progress-tracker` | P17 |
 | 完稿终审 | `quality-evaluator` | `plot-architect`、`problem-solver`、`progress-tracker` | P18、P19 |
-| 查重/原创性 | `plagiarism-checker` | 对应产出技能 | 相似度低于阈值 |
+| 原创性审查 | `plagiarism-checker` | 对应产出技能 | 风险可控且重构项明确 |
 
 ## 二、全流程执行顺序
 
@@ -184,11 +184,11 @@
 2. 调用 `quality-evaluator` 定位未通过项。
 3. 调用 `problem-solver` 做改稿分诊。
 4. 回到对应生产技能重做。
-5. 调用 `plagiarism-checker` 检查原创性。
+5. 调用 `plagiarism-checker` 检查原创性风险。
 6. 调用 `progress-tracker` 记录问题、修复依据和结果。
 
 ## 四、最小闭环
 
 如果任务很小，只写一章，也必须执行最小闭环：
 
-`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → `content-writer` 写作 → `quality-evaluator` 检查 → `problem-solver` 修订 → `plagiarism-checker` 查重 → `progress-tracker` 记录。
+`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → `content-writer` 写作 → `quality-evaluator` 检查 → `problem-solver` 修订 → `plagiarism-checker` 原创性风险审查 → `progress-tracker` 记录。

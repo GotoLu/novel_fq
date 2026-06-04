@@ -6,10 +6,10 @@
 
 | 组合 | 适用场景 | 执行方式 | 风险控制 |
 |------|----------|----------|----------|
-| 顺序组合 | 新项目、资料不完整、需要稳 | 市场 → 创意 → 人物 → 情节 → 正文 → 质检 → 查重 → 进度 | 每阶段过闸门再进入下一阶段 |
+| 顺序组合 | 新项目、资料不完整、需要稳 | 市场 → 创意 → 人物 → 情节 → 正文 → 质检 → 原创性审查 → 进度 | 每阶段过闸门再进入下一阶段 |
 | 并行组合 | 已有成熟设定，需要提速 | 市场和竞品可与创意池并行，人物草案可与世界观草案并行 | 由 `quality-evaluator` 检查冲突，由 `progress-tracker` 合并版本 |
-| 迭代组合 | 已有稿件需要升级 | 评估 → 分诊 → 重做 → 查重 → 复评 → 记录 | 每轮必须声明改动目标和保护项 |
-| 快速闭环 | 只处理一章或一个问题 | 生产技能 → 质检 → 分诊 → 查重 → 记录 | 不跳过质量和原创性闸门 |
+| 迭代组合 | 已有稿件需要升级 | 评估 → 分诊 → 重做 → 原创性审查 → 复评 → 记录 | 每轮必须声明改动目标和保护项 |
+| 快速闭环 | 只处理一章或一个问题 | 生产技能 → 质检 → 分诊 → 原创性审查 → 记录 | 不跳过质量和原创性闸门 |
 
 ## 二、任务组合
 
@@ -56,7 +56,7 @@
 
 执行链：
 
-`plot-architect` 章节卡 → `character-designer` 当前人物状态 → `content-writer` 写正文 → `quality-evaluator` 检查钩子、推进、情绪、爽点和风格 → `problem-solver` 必要分诊 → `plagiarism-checker` 查重 → `progress-tracker` 记录。
+`plot-architect` 章节卡 → `character-designer` 当前人物状态 → `content-writer` 写正文 → `quality-evaluator` 检查钩子、推进、情绪、爽点和风格 → `problem-solver` 必要分诊 → `plagiarism-checker` 原创性风险审查 → `progress-tracker` 记录。
 
 通过标准：
 
@@ -69,7 +69,7 @@
 
 执行链：
 
-`quality-evaluator` 定位 → `problem-solver` 分诊 → 对应生产技能重做 → `plagiarism-checker` 查重 → `quality-evaluator` 复评 → `progress-tracker` 记录。
+`quality-evaluator` 定位 → `problem-solver` 分诊 → 对应生产技能重做 → `plagiarism-checker` 原创性风险审查 → `quality-evaluator` 复评 → `progress-tracker` 记录。
 
 问题和回退：
 
@@ -82,7 +82,7 @@
 | 章节不吸引 | `content-writer` |
 | 改稿无方向 | `problem-solver` |
 | 质量判断混乱 | `quality-evaluator` |
-| 相似风险 | `plagiarism-checker` |
+| 原创性风险 | `plagiarism-checker` |
 | 长篇记录混乱 | `progress-tracker` |
 
 ### 6. 连载复盘组合
@@ -106,7 +106,7 @@
 4. 没有章节卡时，不直接写正文。
 5. 没有质量报告时，不做大规模改稿。
 6. 没有分诊结论时，不随意重写。
-7. 没有查重结论时，不进入发布或定稿。
+7. 没有原创性风险结论时，不进入发布或定稿。
 8. 没有进度记录时，不进入下一周期。
 
 ## 四、优先级冲突处理
@@ -118,7 +118,7 @@
 | 人物真实但剧情慢 | 由 `plot-architect` 提高外部压力，不牺牲人物动机 |
 | 大纲完整但正文无聊 | 由 `content-writer` 重做场景调度、情绪投注和章末接力 |
 | 爽点强但逻辑伤 | 回到 `plot-architect` 修因果和代价 |
-| 查重安全但风格平 | 由 `content-writer` 加强作者风格声明和句群设计 |
+| 原创性风险可控但风格平 | 由 `content-writer` 加强作者风格声明和句群设计 |
 | 质量评分高但读者反馈差 | 由 `progress-tracker` 触发读者反馈闭环，重新校准指标 |
 
 ## 五、输出格式

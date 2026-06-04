@@ -12,7 +12,7 @@
 |------|------|
 | `character-designer` | 提供人物欲望、弱点、关系压力和群像轮转限制 |
 | `plot-architect` | 设计结构、世界观、大纲、伏笔、资源账本、资产库和完结方向 |
-| `plagiarism-checker` | 检查世界观、设定、桥段和核心场景相似风险 |
+| `plagiarism-checker` | 检查世界观、设定、桥段和核心场景原创性风险 |
 | `quality-evaluator` | 验收 P1、P5、P6、P8、P10、P11、P14、P16、P19 |
 | `problem-solver` | 对结构松散、章节无变化、资源失控做分诊 |
 | `progress-tracker` | 记录大纲版本、资源状态、伏笔状态和卷级风险 |
@@ -49,4 +49,3 @@
 | 爽点无效 | `plot-architect` 重做爽点链和情绪债 |
 | 设定相似 | `plot-architect` 和 `idea-generator` 重构世界观规则 |
 | 长篇资源混乱 | `progress-tracker` 补资源账本，再由 `plot-architect` 修大纲 |
-

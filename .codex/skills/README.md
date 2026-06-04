@@ -1,6 +1,6 @@
 # 小说创作技能系统使用说明
 
-本目录是 Codex 在本项目中使用的小说创作技能库。它不是零散提示词合集，而是一套从立项、创意、人物、情节、正文、质检、改稿、查重、进度管理到发布完结的完整生产系统。
+本目录是 Codex 在本项目中使用的小说创作技能库。它不是零散提示词合集，而是一套从立项、创意、人物、情节、正文、质检、改稿、原创性审查、进度管理到发布完结的完整生产系统。
 
 使用任何技能前，先遵循 [创作质量优先级](./创作质量优先级.md)。如果流程完整和小说好看发生冲突，永远优先读者钩子、单章追读、人物压力、情节推进、原创性、情绪投入和长篇稳定性。
 
@@ -17,7 +17,7 @@
 | `quality-evaluator` | 质量评估和硬性淘汰检查 | 评分报告、问题清单、版本对比 | 验收任何创作成果 |
 | `problem-solver` | 问题诊断、改稿分诊和修复方案 | 诊断结果、改稿方案、保护项 | 卡文、崩线、追读差、人物失真 |
 | `progress-tracker` | 项目进度、节点、周期审计和反馈闭环 | 进度记录、审计报告、调整依据 | 长篇连载管理、阶段复盘 |
-| `plagiarism-checker` | 原创性、相似度和风险检查 | 查重报告、风险等级、改写建议 | 创意、设定、场景、正文和对话验收 |
+| `plagiarism-checker` | 原创性风险、桥段撞车和表达复用检查 | 风险分型、风险等级、改写建议 | 创意、设定、场景、正文和对话验收 |
 
 ## 二、总入口选择
 
@@ -26,7 +26,7 @@
 - 从零启动一本小说。
 - 同时涉及市场、创意、人物、情节、正文或改稿中的两个以上环节。
 - 用户只说“帮我优化小说”“看看哪里有问题”“做完整方案”。
-- 已有章节需要诊断、重写、查重、记录进度和规划后续。
+- 已有章节需要诊断、重写、原创性审查、记录进度和规划后续。
 
 只调用单项技能的情况：
 
@@ -38,7 +38,7 @@
 
 ### 1. 立项链
 
-`progress-tracker` 初始化项目 → `market-analyzer` 做平台、题材、竞品和发布适配 → `idea-generator` 生成并验证高概念 → `plagiarism-checker` 检查核心设定原创性 → `quality-evaluator` 验收创意质量。
+`progress-tracker` 初始化项目 → `market-analyzer` 做平台、题材、竞品和发布适配 → `idea-generator` 生成并验证高概念 → `plagiarism-checker` 审查核心设定原创性风险 → `quality-evaluator` 验收创意质量。
 
 最低交付：
 
@@ -62,7 +62,7 @@
 
 ### 3. 正文链
 
-`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → `content-writer` 写正文 → `quality-evaluator` 查钩子、推进、情绪、爽点和风格 → `plagiarism-checker` 查重 → `progress-tracker` 记录。
+`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → `content-writer` 写正文 → `quality-evaluator` 查钩子、推进、情绪、爽点和风格 → `plagiarism-checker` 做原创性风险审查 → `progress-tracker` 记录。
 
 最低交付：
 
@@ -74,7 +74,7 @@
 
 ### 4. 改稿链
 
-`quality-evaluator` 定位问题 → `problem-solver` 按结构、人物动机、追读、场景、语言顺序分诊 → 对应生产技能重做 → `plagiarism-checker` 查重 → `progress-tracker` 记录版本变化。
+`quality-evaluator` 定位问题 → `problem-solver` 按结构、人物动机、追读、场景、语言顺序分诊 → 对应生产技能重做 → `plagiarism-checker` 做原创性风险审查 → `progress-tracker` 记录版本变化。
 
 最低交付：
 
@@ -135,21 +135,21 @@
 1. `quality-evaluator` 定位失败项。
 2. `problem-solver` 分诊改稿优先级。
 3. 回到 `idea-generator`、`character-designer`、`plot-architect` 或 `content-writer` 重做。
-4. `plagiarism-checker` 复查原创性。
+4. `plagiarism-checker` 复查原创性风险。
 5. `progress-tracker` 记录问题、版本和决策依据。
 
 ## 六、最小使用闭环
 
 即使只写一章，也不能只调用 `content-writer`。最小闭环是：
 
-`plot-architect` 章节卡 → `character-designer` 人物状态 → `content-writer` 正文 → `quality-evaluator` 质量检查 → `problem-solver` 必要修订 → `plagiarism-checker` 原创性检查 → `progress-tracker` 记录。
+`plot-architect` 章节卡 → `character-designer` 人物状态 → `content-writer` 正文 → `quality-evaluator` 质量检查 → `problem-solver` 必要修订 → `plagiarism-checker` 原创性风险审查 → `progress-tracker` 记录。
 
 ## 七、文档关系
 
 - `skill-chains/`：全技能链路总控和阶段化使用说明。
 - `创作质量优先级.md`：所有技能的最高质量规则。
 - 各技能目录下的 `SKILL.md`：单项技能的具体执行规范。
-- `plagiarism-checker/`：查重算法、阈值、配置和实现说明。
+- `plagiarism-checker/`：原创性风险分型、桥段撞车和表达复用审查说明。
 
 ## 八、使用原则
 

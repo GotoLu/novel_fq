@@ -23,7 +23,7 @@ skill-chains 总控
 验收与修复层
   |
   +-- quality-evaluator    质量评分、硬性淘汰、版本对比
-  +-- plagiarism-checker   原创性、相似度、风险定位
+  +-- plagiarism-checker   原创性风险、桥段撞车、表达复用定位
   +-- problem-solver       分诊、修复、保护项
   |
   v
@@ -100,7 +100,7 @@ problem-solver 分诊
   +-- 长篇失控       -> progress-tracker + plot-architect
   |
   v
-复评、复查重、记录版本
+复评、原创性复查、记录版本
 ```
 
 ## 四、数据依赖

@@ -25,4 +25,4 @@
 - `problem-solver`：写作问题诊断与修复。
 - `progress-tracker`：里程碑、进度和报告管理。
 - `skill-chains`：多阶段工作流。
-- `plagiarism-checker`：相似度与原创性检查。
+- `plagiarism-checker`：原创性风险、桥段撞车和表达复用检查。

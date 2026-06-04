@@ -15,7 +15,7 @@
 | `content-writer` | 写开篇、日常章、高潮段落和统一风格正文 |
 | `quality-evaluator` | 验收 P0、P5、P6、P7、P8、P9、P15 |
 | `problem-solver` | 对不追读、人物失真、场景无力和语言问题分诊 |
-| `plagiarism-checker` | 检查正文、对话、场景和表达相似风险 |
+| `plagiarism-checker` | 检查正文、对话、场景和表达复用风险 |
 | `progress-tracker` | 记录章节状态、问题、修订和下一章接力 |
 
 ## 必须交付
@@ -48,4 +48,3 @@
 | 人物不像自己 | `character-designer` 校准人物状态 |
 | 场景无力 | `content-writer` 重写场景调度 |
 | 文本相似 | `content-writer` 重构表达、场景组织和对话 |
-
