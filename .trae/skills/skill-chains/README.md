@@ -29,7 +29,7 @@
 ### 阶段四：内容创作执行
 **聚焦维度**：正文写作、节奏控制、质量把控  
 **核心目标**：掌握正文写作技巧，保持稳定创作节奏  
-**Skill链**：`content-writer` → `problem-solver` → `quality-evaluator`  
+**Skill链**：`plot-architect` → `character-designer` → `content-writer` → `quality-evaluator` → `plagiarism-checker` → `problem-solver` → `progress-tracker`  
 **学习周期**：持续进行
 
 ### 阶段五：系统整合与优化
@@ -59,11 +59,19 @@
             ↓
 阶段四：内容创作执行
     │
+    ├── plot-architect
+    │       ↓
+    ├── character-designer
+    │       ↓
     ├── content-writer
+    │       ↓
+    ├── quality-evaluator
+    │       ↓
+    ├── plagiarism-checker
     │       ↓
     ├── problem-solver
     │       ↓
-    └── quality-evaluator
+    └── progress-tracker
             ↓
 阶段五：系统整合与优化
     │
@@ -79,7 +87,7 @@
 | 阶段一 | 创意链 | market-analyzer, idea-generator | progress-tracker | 无 |
 | 阶段二 | 人物链 | character-designer | quality-evaluator, progress-tracker | 阶段一 |
 | 阶段三 | 架构链 | plot-architect | quality-evaluator, progress-tracker | 阶段一、二 |
-| 阶段四 | 创作链 | content-writer, problem-solver | quality-evaluator, progress-tracker | 阶段一、二、三 |
+| 阶段四 | 创作链 | content-writer, quality-evaluator | plot-architect, character-designer, plagiarism-checker, problem-solver, progress-tracker | 阶段一、二、三 |
 | 阶段五 | 整合链 | 全skill协同 | progress-tracker | 阶段一、二、三、四 |
 
 ---
@@ -137,6 +145,7 @@
 6. **问题解决能力**：快速诊断和解决创作问题
 7. **质量把控能力**：持续评估和优化作品质量
 8. **系统整合能力**：协调所有技能，形成完整创作体系
+9. **单章闭环能力**：让章节卡、正文、质量结论、原创审查和进度记录保持一致
 
 ---
 
