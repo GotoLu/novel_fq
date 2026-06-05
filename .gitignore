@@ -117,6 +117,7 @@ auto-generated/
 # Temporary novel drafts
 drafts/
 *.draft.md
+novel-project/.pipeline/
 
 # Personal notes
 notes/
