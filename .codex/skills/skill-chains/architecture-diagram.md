@@ -35,7 +35,7 @@ skill-chains 总控
 下一阶段 / 回退重做 / 发布完结
 ```
 
-## 二、五阶段流向
+## 二、六阶段流向
 
 ```text
 阶段一：市场与创意
@@ -61,9 +61,16 @@ character-designer
   -> problem-solver 必要修复
   -> progress-tracker
 
+阶段三点五：作者性格定标
+market-analyzer / quality-evaluator
+  -> content-writer 作者性格声明
+  -> problem-solver 标记风格风险
+  -> progress-tracker 入库
+
 阶段四：正文生产
 plot-architect
   -> character-designer
+  -> 作者性格声明校验
   -> content-writer
   -> quality-evaluator
   -> problem-solver 必要修复
@@ -111,7 +118,7 @@ problem-solver 分诊
 | `idea-generator` | 市场定位、题材方向 | `character-designer`、`plot-architect`、`plagiarism-checker` |
 | `character-designer` | 高概念、核心冲突 | `plot-architect`、`content-writer`、`quality-evaluator` |
 | `plot-architect` | 创意、人物、市场节奏 | `content-writer`、`progress-tracker`、`quality-evaluator` |
-| `content-writer` | 章节卡、人物状态、风格声明 | `quality-evaluator`、`plagiarism-checker`、`progress-tracker` |
+| `content-writer` | 章节卡、人物状态、作者性格声明、风格声明 | `quality-evaluator`、`plagiarism-checker`、`progress-tracker` |
 | `quality-evaluator` | 任意产出 | `problem-solver`、`progress-tracker` |
 | `problem-solver` | 质量报告、用户反馈 | 对应生产技能、`progress-tracker` |
 | `plagiarism-checker` | 创意、设定、场景、文本 | 对应生产技能、`quality-evaluator` |

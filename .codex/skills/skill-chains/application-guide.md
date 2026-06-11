@@ -10,7 +10,8 @@
 | 创意优化 | `idea-generator` | `market-analyzer`、`quality-evaluator`、`plagiarism-checker` | 不可替代性、原创性 |
 | 人物设计 | `character-designer` | `idea-generator`、`quality-evaluator` | P2、P13 |
 | 大纲/世界观/案件设计 | `plot-architect` | `character-designer`、`quality-evaluator`、`plagiarism-checker` | P1、P5、P6、P8、P10、P11、P14、P16、P19 |
-| 正文写作 | `content-writer` | `plot-architect`、`character-designer`、`quality-evaluator`、`plagiarism-checker` | P0、P5、P6、P7、P8、P9 |
+| 作者性格定标 | `skill-chains` | `content-writer`、`quality-evaluator`、`progress-tracker` | P9、P18、沉浸感、视角边界 |
+| 正文写作 | `content-writer` | `plot-architect`、`character-designer`、`quality-evaluator`、`plagiarism-checker` | P0、P5、P6、P7、P8、P9、作者性格一致性 |
 | 章节修订 | `problem-solver` | `quality-evaluator`、`content-writer`、`plot-architect` | P15 |
 | 连载复盘 | `progress-tracker` | `quality-evaluator`、`problem-solver` | P12、P14 |
 | 发布准备 | `market-analyzer` | `quality-evaluator`、`progress-tracker` | P17 |
@@ -98,7 +99,29 @@
 - 卷级防塌卡
 - 完结设计表
 
-### 5. 写作正文
+### 5. 作者性格定标
+
+调用：
+- 新项目：`market-analyzer` 校准题材读者 → `idea-generator` 校准高概念气质 → `character-designer` 校准主角观察方式 → `content-writer` 生成作者性格声明 → `quality-evaluator` 验收
+- 已有项目：`progress-tracker` 定位代表章节 → `quality-evaluator` 反推文本气质 → `content-writer` 固化作者性格声明 → `progress-tracker` 入库
+
+必须产出：
+- 作者性格核心
+- 叙述态度
+- 幽默刀口
+- 同情对象和鄙视对象
+- 迷恋对象
+- 句群偏好
+- 禁用表达
+- 3-5 句落笔样例
+- 已有项目的反推依据
+
+必须通过：
+- 作者性格符合题材风格、目标读者和主角观察方式。
+- 既能指导正文落笔，又不会压扁人物独立性。
+- 已有项目的性格声明必须来自已有章节证据，不能凭空重设。
+
+### 6. 写作正文
 
 调用：
 - `content-writer.write_opening`
@@ -115,9 +138,10 @@
 - 情绪投注
 - 爽点链
 - 风格声明
+- 作者性格一致性
 - 原创性
 
-### 6. 诊断与改稿
+### 7. 诊断与改稿
 
 调用：
 - `quality-evaluator.evaluate_chapter`
@@ -138,7 +162,7 @@
 - 增强什么
 - 不能破坏什么
 
-### 7. 连载周期审计
+### 8. 连载周期审计
 
 调用：
 - `progress-tracker.periodic_audit`
@@ -151,7 +175,7 @@
 - 每 20-30 章：卷级防塌审计
 - 每卷结束：类型机制复盘
 
-### 8. 发布与完结
+### 9. 发布与完结
 
 调用：
 - `market-analyzer.generate_publishing_fit`
@@ -191,4 +215,4 @@
 
 如果任务很小，只写一章，也必须执行最小闭环：
 
-`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → `content-writer` 写作 → `quality-evaluator` 检查 → `problem-solver` 修订 → `plagiarism-checker` 原创性风险审查 → `progress-tracker` 记录。
+`plot-architect` 提供章节卡 → `character-designer` 确认人物状态 → 检查作者性格声明或反推结果 → `content-writer` 写作 → `quality-evaluator` 检查 → `problem-solver` 修订 → `plagiarism-checker` 原创性风险审查 → `progress-tracker` 记录。

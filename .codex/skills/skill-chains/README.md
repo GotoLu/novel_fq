@@ -19,13 +19,14 @@
 | `progress-tracker` | 长篇记忆和节点管理 | 防止连载越长越失控 |
 | `plagiarism-checker` | 原创性闸门 | 防止创意、设定、桥段和正文复用风险 |
 
-## 二、五阶段总链路
+## 二、六阶段总链路
 
 | 阶段 | 核心目标 | 主执行链 | 必过闸门 | 交付物 |
 |------|----------|----------|----------|--------|
 | 阶段一：市场与创意 | 找到平台、读者、题材机会和不可替代高概念 | `progress-tracker` → `market-analyzer` → `idea-generator` → `plagiarism-checker` → `quality-evaluator` | P3、P11、P17、原创性 | 项目记录、平台定位、发布适配、创意验证、高概念 |
 | 阶段二：人物与群像 | 建立会被情节逼出反应的人物体系 | `character-designer` → `plot-architect` 局部校验 → `quality-evaluator` → `progress-tracker` | P2、P13 | 人物档案、压力测试、关系网络、群像轮转表 |
 | 阶段三：结构与资产 | 建立长篇能跑下去的骨架、资源和结局方向 | `plot-architect` → `character-designer` 反查 → `plagiarism-checker` → `quality-evaluator` → `progress-tracker` | P1、P5、P6、P8、P10、P11、P14、P16、P19 | 大纲、场景调度卡、章节接力卡、爽点链卡、资源账本、资产库、完结设计 |
+| 阶段三点五：作者性格定标 | 在开写前确定本书作者的稳定落笔人格；已有项目从代表章节反推 | `market-analyzer`/`quality-evaluator` → `content-writer` → `problem-solver` → `progress-tracker` | P9、P18、沉浸感、视角边界 | 作者性格声明、幽默刀口、同情对象、禁用表达、落笔样句、反推依据 |
 | 阶段四：正文生产 | 把设计转成有追读、有情绪、有风格的章节 | `plot-architect` 章节卡 → `character-designer` 人物状态 → `content-writer` → `quality-evaluator` → `problem-solver` → `plagiarism-checker` → `progress-tracker` | P0、P5、P6、P7、P8、P9、P15 | 章节正文、质量报告、改稿记录、原创性结论、下一章接力点 |
 | 阶段五：连载、发布与完结 | 持续审计并完成发布、终审和收束 | `progress-tracker` → 全技能按问题调用 → `quality-evaluator` → `problem-solver` → `plagiarism-checker` | P4、P12、P14、P15、P17、P18、P19 | 周期审计、反馈复盘、发布材料、终稿审美统一、完结清单 |
 
@@ -37,6 +38,7 @@
 | 高概念 | 人物、情节、简介 | 核心冲突、第一眼卖点、差异化来源 |
 | 人物档案 | 大纲、章节、改稿 | 欲望、恐惧、能力、弱点、关系压力 |
 | 大纲和资产库 | 正文、质检、进度 | 主线目标、章节目标、伏笔、资源消耗、爽点回报 |
+| 作者性格声明 | 正文、质检、改稿 | 叙述态度、幽默刀口、同情对象、禁用表达、落笔样句 |
 | 章节正文 | 质检、改稿、原创性审查 | 钩子、变化、情绪债、章末接力点 |
 | 质量报告 | 改稿、进度 | 未通过项、严重度、修复建议 |
 | 原创性风险报告 | 改稿、终审 | 风险类型、风险等级、需要改写的元素 |
@@ -48,7 +50,8 @@
 |----|----|----------|
 | 阶段一 | 阶段二 | 高概念通过不可替代性和原创性检查，平台与发布方向明确 |
 | 阶段二 | 阶段三 | 主角、反派、核心配角完成压力测试，人物关系能制造持续冲突 |
-| 阶段三 | 阶段四 | 分卷/分章大纲、章节卡、资源账本、资产库、完结方向可执行 |
+| 阶段三 | 阶段三点五 | 分卷/分章大纲、章节卡、资源账本、资产库、完结方向可执行 |
+| 阶段三点五 | 阶段四 | 作者性格声明已定标；已有项目已完成代表章节反推；落笔样句、幽默刀口和禁用表达可执行 |
 | 阶段四 | 阶段五 | 黄金三章和正文生产闭环通过质量闸门，进度记录字段完整 |
 | 阶段五 | 完稿 | 主线偿付、人物归宿、伏笔处理、主题落点、发布材料和原创性终审完成 |
 
@@ -61,7 +64,7 @@
 | 情节塌陷 | `plot-architect` | 大纲、资源账本、章节接力 | 临时加设定糊墙 |
 | 正文不追读 | `quality-evaluator` | 章节目标、阻碍、代价、章末钩子 | 只加悬念句 |
 | 爽点无效 | `plot-architect` | 爽点链卡和情绪债 | 无铺垫硬给奖励 |
-| 风格不统一 | `content-writer` | 作者风格声明和样章 | 每章换口吻 |
+| 作者性格缺失或风格不统一 | `content-writer`、`quality-evaluator` | 阶段三点五作者性格定标或反推 | 每章换口吻 |
 | 原创性风险 | `plagiarism-checker` | 创意、设定、场景或表达层重构 | 只替换名词 |
 | 连载失控 | `progress-tracker` | 周期审计和资源账本 | 继续盲写 |
 
@@ -85,4 +88,4 @@
 - `combination-strategy.md`：全技能组合策略和回退方式。
 - `evaluation-system.md`：全技能验收体系。
 - `architecture-diagram.md`：技能关系图。
-- `phase-1-market-idea.md` 至 `phase-5-integration.md`：阶段细则。
+- `phase-1-market-idea.md` 至 `phase-5-integration.md`：阶段细则；其中 `phase-3-author-persona.md` 是正文生产前置阶段。
