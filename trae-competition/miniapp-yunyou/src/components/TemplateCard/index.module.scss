@@ -1,0 +1,109 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  border: 4rpx solid transparent;
+  transition: all $transition-base;
+  position: relative;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.active {
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.coverWrap {
+  position: relative;
+  width: 100%;
+  height: 320rpx;
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+}
+
+.hotBadge {
+  position: absolute;
+  top: 16rpx;
+  left: 16rpx;
+  background: linear-gradient(135deg, #FF7D00, #F53F3F);
+  padding: 6rpx 16rpx;
+  border-radius: $radius-round;
+}
+
+.hotText {
+  font-size: 20rpx;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}
+
+.checkBadge {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.15);
+}
+
+.checkText {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 700;
+}
+
+.info {
+  padding: 24rpx;
+}
+
+.name {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.desc {
+  display: block;
+  font-size: 22rpx;
+  color: $color-text-secondary;
+  line-height: 1.5;
+  min-height: 66rpx;
+  @include text-ellipsis-multi(2);
+  margin-bottom: 16rpx;
+}
+
+.footRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.count {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+}
+
+.dotRow {
+  display: flex;
+  gap: 8rpx;
+}
+
+.dot {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+}

@@ -1,0 +1,19 @@
+@use '@/styles/variables.scss' as *;
+
+.tape {
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.08);
+  pointer-events: none;
+  z-index: 2;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8rpx;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  }
+  &::before { left: -4rpx; }
+  &::after { right: -4rpx; }
+}

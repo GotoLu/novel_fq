@@ -1,0 +1,171 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  position: relative;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 32rpx;
+  margin-bottom: $spacing-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.dateWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $color-primary;
+  color: #fff;
+  border-radius: $radius-md;
+  padding: 12rpx 16rpx;
+  min-width: 88rpx;
+  flex-shrink: 0;
+}
+
+.dateDay {
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dateMonth {
+  font-size: 18rpx;
+  margin-top: 4rpx;
+  opacity: 0.9;
+}
+
+.titleWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: $color-text-primary;
+  line-height: 1.3;
+  margin-bottom: 8rpx;
+  @include text-ellipsis-multi(2);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.metaItem {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+  background: $color-bg-soft;
+  padding: 4rpx 12rpx;
+  border-radius: $radius-round;
+}
+
+.imgWrap {
+  width: 100%;
+  height: 360rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: block;
+  font-size: 26rpx;
+  color: $color-text-secondary;
+  line-height: 1.7;
+  margin-bottom: 20rpx;
+  @include text-ellipsis-multi(4);
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.tag {
+  background: rgba(232,137,92,0.1);
+  padding: 6rpx 16rpx;
+  border-radius: $radius-round;
+}
+
+.tagText {
+  font-size: 20rpx;
+  color: $color-primary;
+  font-weight: 500;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1rpx solid $color-border-soft;
+  padding-top: 20rpx;
+}
+
+.likeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 8rpx 16rpx;
+  border-radius: $radius-round;
+  background: $color-bg-page;
+  transition: all $transition-fast;
+
+  &:active {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+
+  &.liked {
+    background: rgba(255, 77, 79, 0.08);
+  }
+}
+
+.likeIcon {
+  font-size: 28rpx;
+}
+
+.likeCount {
+  font-size: 24rpx;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.liked .likeCount { color: #F53F3F; }
+
+.actionBtn {
+  padding: 8rpx 20rpx;
+  border-radius: $radius-round;
+  background: $color-primary;
+  transition: all $transition-fast;
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.96);
+  }
+}
+
+.actionText {
+  font-size: 22rpx;
+  color: #fff;
+  font-weight: 500;
+}

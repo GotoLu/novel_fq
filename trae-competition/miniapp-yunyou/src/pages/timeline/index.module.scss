@@ -1,0 +1,118 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 48rpx;
+}
+
+.hero {
+  position: relative;
+  padding: 48rpx 32rpx 40rpx;
+  background: linear-gradient(180deg, rgba(232,137,92,0.18) 0%, rgba(232,137,92,0) 100%);
+  overflow: hidden;
+}
+
+.heroGreeting {
+  font-size: 26rpx;
+  color: $color-text-secondary;
+  margin-bottom: 8rpx;
+}
+
+.heroTitle {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: $color-text-primary;
+  line-height: 1.2;
+  margin-bottom: 16rpx;
+}
+
+.heroAccent {
+  color: $color-primary;
+  font-style: italic;
+}
+
+.heroSub {
+  display: block;
+  font-size: 26rpx;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: 32rpx;
+}
+
+.statRow {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.statCard {
+  flex: 1;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: 20rpx;
+  text-align: center;
+  box-shadow: $shadow-card;
+}
+
+.statNum {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: $color-primary;
+  line-height: 1.2;
+}
+
+.statLabel {
+  display: block;
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.ctaBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+  color: #fff;
+  height: 96rpx;
+  border-radius: $radius-button;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 16rpx rgba(232,137,92,0.35);
+  transition: all $transition-fast;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+}
+
+.ctaIcon {
+  font-size: 32rpx;
+}
+
+.section {
+  padding: 0 32rpx;
+  margin-top: 16rpx;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.sectionTitle {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: $color-text-primary;
+}
+
+.sectionMore {
+  font-size: 24rpx;
+  color: $color-text-tertiary;
+}

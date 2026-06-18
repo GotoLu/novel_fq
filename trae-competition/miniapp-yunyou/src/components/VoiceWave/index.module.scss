@@ -1,0 +1,26 @@
+@use '@/styles/variables.scss' as *;
+
+.bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+  width: 100%;
+}
+
+.bar {
+  width: 6rpx;
+  background: linear-gradient(180deg, $color-primary 0%, $color-ocean 100%);
+  border-radius: 6rpx;
+  transform-origin: center;
+  transform: scaleY(0.35);
+}
+
+.active {
+  animation: voiceWave 1.2s ease-in-out infinite;
+}
+
+@keyframes voiceWave {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
